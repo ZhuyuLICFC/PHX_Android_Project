@@ -7,8 +7,12 @@ Below is the basic structure of this repository:<br>
 * master
 	* readme
 * SubProject_JsoupListViewFunction
-	* MailLayoutTest/
+	* MainLayoutTest/
+	* README.md
+* SubProject_MailjarContacUsViewFunction
+	* ContactUsLayout/
 	* README.md
 * TestProject_ActivityInteraction
 	* GeoQuiz/
 	* README.md
+
