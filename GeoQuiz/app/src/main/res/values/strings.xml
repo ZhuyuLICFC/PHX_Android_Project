@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">GeoQuiz</string>
+    <string name="true_button">TRUE</string>
+    <string name="false_button">FALSE</string>
+    <string name="next_button">NEXT</string>
+    <string name="correct_toast">Correct</string>
+    <string name="incorrect_toast">Incorrect</string>
+    <string name="question_poao">POAO</string>
+    <string name="question_scrs">SCRS</string>
+    <string name="question_nre">NRE</string>
+    <string name="question_ara">ARA</string>
+    <string name="question_lb">LB</string>
+    <string name="warning_text">Are you sure you want to do this?</string>
+    <string name="show_answer_button">SHOW ANSWER</string>
+    <string name="cheat_button">CHEAT!</string>
+    <string name="judgement_toast">Cheating is wrong!</string>
+</resources>
