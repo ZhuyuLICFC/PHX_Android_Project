@@ -77,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
 
         View testView = View.inflate(this, R.layout.podcast_list, null);
         mPodcastTimeText = testView.findViewById(R.id.podcast_time);
-        mPodcastTitleText = findViewById(R.id.podcast_title);
+        mPodcastTitleText = testView.findViewById(R.id.podcast_title);
         mPodcastTitleText.setTextColor(Color.rgb(255,0,0));
         mPodcastTitleText.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-        mPodcastImage = findViewById(R.id.podcast_img);
+        mPodcastImage = testView.findViewById(R.id.podcast_img);
 
 
         mPodcastListView = findViewById(R.id.podcast_list_view);
