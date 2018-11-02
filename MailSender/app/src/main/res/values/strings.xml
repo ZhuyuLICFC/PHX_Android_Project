@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MailSender</string>
+    <string name="send_mail_button">Send</string>
+</resources>
