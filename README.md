@@ -39,3 +39,21 @@ Below is the requirement of the PHX Android Project<br>
 
 	* Feedback (goes to email?)
 	
+## 3. Run Projects
+### 3.1 Prerequisite
+#### 3.1.1 Configure Java Environment
+Window User: https://sp18.datastructur.es/materials/lab/lab1setup/lab1setup <br>
+Mac User: https://sp18.datastructur.es/materials/lab/lab1setup/mac.html <br>
+Linux User: https://sp18.datastructur.es/materials/lab/lab1setup/linux.html
+#### 3.1.2 Download Android Studio
+Based on your operating system, download a correct version through https://developer.android.com/studio/
+#### 3.1.3 Android phone or Android Virtual Device
+It is strongly recommended to test all projects by an Android phone, but it is also OK to run them through the Android Virtula Device. Android Studio provides this option, you can also find an AVD through another source.
+
+### 3.2 How to run a specific project
+#### 3.2.1 Download the specific
+Switch to the branch which locates the project you want to download, the you can download the project using "git clone "
+#### 3.2.2 Import and run it
+Open the Android Studio, then choose "File->New->Import Project" to import the project. <br>
+Now You are all set, run the project by your Android phone or a virtual Android machine to see what happens.
+	
