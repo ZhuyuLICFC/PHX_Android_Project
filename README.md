@@ -12,9 +12,13 @@ Below is the basic structure of this repository:<br>
 * SubProject_MailsenderFunction
 	* MainSender/
 	* README.md
+* SubProject_DatabaseUpdationFunction
+	* DatabaseUpdation/
+	* README.md
 * TestProject_ActivityInteraction
 	* GeoQuiz/
 	* README.md
+
 ## 2. Project Requirement List by PHX staff
 Below is the requirement of the PHX Android Project<br>
 * User downloads app from Play or Apple Store
