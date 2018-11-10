@@ -8,9 +8,17 @@ public class Podcast {
     private String mDescrip;
     private String mImgUrl;
     private String mMp3Url;
-    private Boolean mIsDownloaded
+    private Boolean mIsDownloaded;
 
-            ;
+    public Podcast (String id, String title, String time, String descrip, String imgUrl, String mp3Url, boolean isDownloaded) {
+        this.mId = id;
+        this.mTitle = title;
+        this.mTime = time;
+        this.mDescrip = descrip;
+        this.mImgUrl = imgUrl;
+        this.mMp3Url = mp3Url;
+        this.mIsDownloaded = isDownloaded;
+    }
 
     public String getId() {
         return mId;

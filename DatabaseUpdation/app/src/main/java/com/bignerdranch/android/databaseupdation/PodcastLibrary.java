@@ -20,11 +20,23 @@ public class PodcastLibrary {
     private Context mContext;
     private SQLiteDatabase mPodcastDatabase;
 
+    public static PodcastLibrary get(Context context) {
+        if (sPodcastLibrary == null) {
+            sPodcastLibrary = new PodcastLibrary(context);
+        }
+        return sPodcastLibrary;
+    }
+
     private PodcastLibrary(Context context) {
         mContext = context.getApplicationContext();
         mPodcastDatabase = new PodcastBaseHelper(mContext)
                 .getWritableDatabase();
     }
+
+    public void closeDatabase() {
+        mPodcastDatabase.close();
+    }
+
 
     public void addPodcast(Podcast podcast) {
         ContentValues values = getContentValues(podcast);
@@ -72,7 +84,7 @@ public class PodcastLibrary {
             cursor.moveToFirst();
             return cursor.getPodcast();
         } finally {
-            cursor.close();;
+            cursor.close();
         }
     }
 
@@ -84,17 +96,17 @@ public class PodcastLibrary {
         values.put(PodcastTable.Cols.DESCRIP, podcast.getDescrip());
         values.put(PodcastTable.Cols.IMGURL, podcast.getImgUrl());
         values.put(PodcastTable.Cols.MP3URL, podcast.getMp3Url());
-        values.put(PodcastTable.Cols.ISDOWNLOADED, podcast.getDownloaded() ? 1 : 0);
+        values.put(PodcastTable.Cols.ISDOWNLOADED, podcast.getDownloaded());
 
         return values;
 
     }
 
     private PodcastCursorWrapper queryPodcast(String whereClause, String[] whereArgs) {
+
+
         Cursor cursor = mPodcastDatabase.query(PodcastTable.NAME, null, whereClause,
                 whereArgs, null, null, null);
         return new PodcastCursorWrapper(cursor);
-
-
     }
 }
