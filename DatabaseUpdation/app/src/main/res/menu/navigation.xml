@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_navigation_event"
+        android:icon="@drawable/bottom_event"
+        android:title="EVENT"/>
+
+    <item
+        android:id="@+id/bottom_navigation_library"
+        android:icon="@drawable/bottom_library"
+        android:title="LIBRARY"/>
+
+    <item
+        android:id="@+id/bottom_navigation_download"
+        android:icon="@drawable/bottom_download"
+        android:title="DOWNLOAD"/>
+
+    <item
+        android:id="@+id/bottom_navigation_mine"
+        android:icon="@drawable/bottom_mine"
+        android:title="MINE"/>
+
+</menu>
