@@ -67,7 +67,7 @@ public class DatabaseUpdation extends AppCompatActivity {
         @Override
         protected void onPostExecute(String finalLink) {
 
-            podcastsTotal.closeDatabase();
+            //podcastsTotal.closeDatabase();
             Log.d(TAG, "closed");
             showNumList.setText(letsURL);
 
@@ -80,9 +80,9 @@ public class DatabaseUpdation extends AppCompatActivity {
 
             for (int i = 0; i < numToAdd; i++) {
 
-             /*   if (i < 5) {
+                if (i < 5) {
                     continue;
-                }*/
+                }
 
                 String getSubPodcastLink = podcastList.get(i).select("a.related_thumbnail_link").attr("href");
                 String mID;
