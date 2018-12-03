@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_event"
+        android:icon="@drawable/bottom_event"
+        android:title="@string/menu_event" />
+
+    <item
+        android:id="@+id/item_library"
+        android:icon="@drawable/bottom_library"
+        android:title="@string/menu_library" />
+
+    <item
+        android:id="@+id/item_download"
+        android:icon="@drawable/bottom_download"
+        android:title="@string/menu_download" />
+
+    <item
+        android:id="@+id/item_mine"
+        android:icon="@drawable/bottom_mine"
+        android:title="@string/menu_mine" />
+</menu>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">PHX</string>
+
+    <string name="form_welcome_message">Welcome to PHX, Please fill the following this form, it will only appear when you first open this app.</string>
+    <string name="form_name">Name*</string>
+    <string name="form_email">Email*</string>
+    <string name="form_location">Location</string>
+    <string name="form__hint_first_name">First Name</string>
+    <string name="form__hint_last_name">Last Name</string>
+    <string name="form__hint_email">Your Email</string>
+    <string name="form__hint_country">Country</string>
+    <string name="form__hint_state">State</string>
+    <string name="form__hint_city">City</string>
+    <string name="form__hint_checkbox">I want to receive the latest on events, programs, and news</string>
+    <string name="form_submit">Submit</string>
+
+    <string name="menu_event">EVENT</string>
+    <string name="menu_library">LIBRARY</string>
+    <string name="menu_download">DOWNLOAD</string>
+    <string name="menu_mine">MINE</string>
+
+</resources>
