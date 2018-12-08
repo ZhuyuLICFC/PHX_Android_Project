@@ -12,11 +12,30 @@
     <string name="form__hint_state">State</string>
     <string name="form__hint_city">City</string>
     <string name="form__hint_checkbox">I want to receive the latest on events, programs, and news</string>
-    <string name="form_submit">Submit</string>
+    <string name="form_submit">SUBMIT</string>
 
     <string name="menu_event">EVENT</string>
     <string name="menu_library">LIBRARY</string>
     <string name="menu_download">DOWNLOAD</string>
     <string name="menu_mine">MINE</string>
+
+    <string name="menu_night_mode">Night Mode</string>
+    <string name="menu_user_feedback">FeedBack</string>
+    <string name="menu_sub_setting">Setting</string>
+    <string name="menu_sub_others">Others</string>
+
+    <string name = "feedback_title">Contact Us</string>
+    <string name = "feedback_name">Name</string>
+    <string name = "feedback_email">Email</string>
+    <string name = "feedback_organization">Organization</string>
+    <string name = "feedback_question">Question/\nComment</string>
+    <string name = "feedback_hint_name">Your name here</string>
+    <string name = "feedback_hint_email">Your email here</string>
+    <string name = "feedback_hint_organization">Your organization here</string>
+    <string name = "feedback_hint_feedback">Please leave your feedback here</string>
+    <string name = "feedback_submit">SUBMIT</string>
+
+
+
 
 </resources>

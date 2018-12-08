@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item android:title="Setting">
+        <menu>
+            <item
+                android:id="@+id/slide_navi_setting_night"
+                android:title="@string/menu_night_mode"
+                app:actionLayout="@layout/switch_item" />
+        </menu>
+    </item>
+
+    <item android:title="Others">
+        <menu>
+            <item
+                android:id="@+id/slide_navi_feedback"
+                android:title="@string/menu_user_feedback" />
+        </menu>
+    </item>
+
+
+</menu>
