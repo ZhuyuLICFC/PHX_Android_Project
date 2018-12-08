@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/register_form_container"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="25dp">
+
+    <TextView
+        android:id="@+id/welcome_message_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/form_welcome_message"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phx_image_view"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <ImageView
+        android:id="@+id/phx_image_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.7"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/sph_image_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_percent="0.5"
+        android:src="@drawable/public_health" />
+
+    <EditText
+        android:id="@+id/email_edit_text"
+        android:layout_width="212dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textSize="16sp"
+        android:hint="@string/form__hint_email"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/country_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/first_name_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/first_name_edit_text" />
+
+    <EditText
+        android:id="@+id/first_name_edit_text"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="@string/form__hint_first_name"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/email_edit_text"
+        app:layout_constraintEnd_toStartOf="@+id/last_name_edit_text"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/name_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_message_text_view" />
+
+    <EditText
+        android:id="@+id/country_edit_text"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="@string/form__hint_country"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/state_edit_text"
+        app:layout_constraintEnd_toStartOf="@+id/city_edit_text"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/state_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/email_edit_text" />
+
+    <EditText
+        android:id="@+id/state_edit_text"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="@string/form__hint_state"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/latest_info_checkBox"
+        app:layout_constraintEnd_toStartOf="@+id/country_edit_text"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/location_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/country_edit_text" />
+
+    <EditText
+        android:id="@+id/city_edit_text"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="@string/form__hint_city"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/country_edit_text"
+        app:layout_constraintTop_toTopOf="@+id/state_edit_text" />
+
+    <EditText
+        android:id="@+id/last_name_edit_text"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="@string/form__hint_last_name"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/first_name_edit_text"
+        app:layout_constraintTop_toTopOf="@+id/first_name_edit_text" />
+
+    <CheckBox
+        android:id="@+id/latest_info_checkBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:checked="true"
+        android:text="@string/form__hint_checkbox"
+        app:layout_constraintBottom_toTopOf="@+id/submit_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/state_edit_text"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <TextView
+        android:id="@+id/name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:text="@string/form_name"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/first_name_edit_text" />
+
+    <TextView
+        android:id="@+id/email_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:text="@string/form_email"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/email_edit_text" />
+
+    <TextView
+        android:id="@+id/location_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:text="@string/form_location"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/country_edit_text" />
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="14dp"
+        android:text="@string/form_submit"
+        app:layout_constraintBottom_toTopOf="@+id/sph_image_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

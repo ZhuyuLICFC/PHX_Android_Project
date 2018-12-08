@@ -12,14 +12,13 @@ import android.util.Log;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-
 public class PermissionUtils {
 
     private Activity mActivity;
     private PermissionInterface mPermissionInterface;
     private String permision;
     private int callBackCode;
-    private static final String TAG = "LaunchActivity";
+    private static final String TAG = "MainActivity";
 
     public PermissionUtils(@NonNull Activity activity, @NonNull PermissionInterface permissionInterface) {
         mActivity = activity;
@@ -39,10 +38,8 @@ public class PermissionUtils {
         this.permision = permission;
         this.callBackCode = callBackCode;
         if (hasPermission(mActivity, permission)) {
-            Log.d(TAG, "has" + permission);
             mPermissionInterface.requestPermissionsSuccess(callBackCode);
         } else {
-            Log.d(TAG, "LackPermission");
             ActivityCompat.requestPermissions(mActivity, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, callBackCode);
         }
     }
