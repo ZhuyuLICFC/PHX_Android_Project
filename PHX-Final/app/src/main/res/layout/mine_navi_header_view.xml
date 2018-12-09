@@ -13,28 +13,25 @@
 
     <ImageView
         android:id="@+id/navi_header_user_image_view"
-        android:layout_width="64dp"
+        android:layout_width="66dp"
         android:layout_height="68dp"
-        android:layout_marginTop="8dp"
         android:src="@drawable/navi_user"
         app:layout_constraintBottom_toTopOf="@+id/navi_header_user_name_text_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.49"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/navi_header_user_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="name"
         android:textColor="@android:color/background_light"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/navi_header_user_email_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/navi_header_user_image_view"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/navi_header_user_image_view"
         app:layout_constraintTop_toBottomOf="@+id/navi_header_user_image_view" />
 
@@ -42,11 +39,11 @@
         android:id="@+id/navi_header_user_email_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="email"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/navi_header_user_image_view"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/navi_header_user_image_view"
         app:layout_constraintTop_toBottomOf="@+id/navi_header_user_name_text_view" />
 </android.support.constraint.ConstraintLayout>

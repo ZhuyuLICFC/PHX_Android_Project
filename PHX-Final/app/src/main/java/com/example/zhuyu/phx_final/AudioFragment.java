@@ -10,9 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class LibraryFragment extends Fragment {
+public class AudioFragment extends Fragment {
 
-    private ViewPager mViewPager;
+    ViewPager mViewPager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,12 +21,12 @@ public class LibraryFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.sub_library, container, false);
-        mViewPager = v.findViewById(R.id.library_view_pager);
+        View v = inflater.inflate(R.layout.sub_library_sub_audio, container, false);
+        mViewPager = v.findViewById(R.id.audio_view_pager);
         FragmentManager fragmentManager = getChildFragmentManager();
         final Fragment[] fragments = new Fragment[2];
-        fragments[0] = new AudioFragment();
-        fragments[1] = new VideoFragment();
+        fragments[0] = new PodcastFragment();
+        fragments[1] = new PodcastFragment();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
             @Override
             public Fragment getItem(int i) {

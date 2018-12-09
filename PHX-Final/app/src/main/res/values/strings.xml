@@ -35,6 +35,13 @@
     <string name = "feedback_hint_feedback">Please leave your feedback here</string>
     <string name = "feedback_submit">SUBMIT</string>
 
+    <string name="podcast_share">Share</string>
+    <string name="podcast_play">Play</string>
+    <string name="podcast_download">Download</string>
+
+    <string name="tab_library_audio">Audio</string>
+    <string name="tab_library_video">Video</string>
+
 
 
 
