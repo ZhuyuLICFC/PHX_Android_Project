@@ -53,6 +53,8 @@ public class MainFragment extends Fragment implements BottomNavigationView.OnNav
     private View globalV;
 
     private String URLToAnalyse = "https://populationhealthexchange.org/library/podcasts/free-associations/";
+    private String URLToAnalysePS = "https://populationhealthexchange.org/library/practically-speaking/";
+    private String URLToAnalyseW = "https://populationhealthexchange.org/learning-opportunities/webinar/";
     private static final String TAG = "MainFragment";
 
     @Override
@@ -266,8 +268,8 @@ public class MainFragment extends Fragment implements BottomNavigationView.OnNav
                 //podcastsTotal.addPodcast(new Podcast(mID, mTitle, mTime, mDescrip, mImgUrl, mMP3Url, false));
                 podcastsTotal.addPodcast(new Podcast(mID, mTitle, mTime, mDescrip, mImgUrl, mMP3Url, false, imgShow));
 
-
             }
+
 
         }
 
