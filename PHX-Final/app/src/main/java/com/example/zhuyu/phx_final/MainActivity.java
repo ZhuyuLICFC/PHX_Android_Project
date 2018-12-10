@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.zhuyu.phx_final.utils.FileOperationUtils;
+
 import java.io.File;
 
 public class MainActivity extends FragmentActivity implements PermissionInterface{
@@ -35,11 +37,11 @@ public class MainActivity extends FragmentActivity implements PermissionInterfac
         fm = getSupportFragmentManager();
         Fragment fragment;
 
-        if (FileOperationUtils.checkExist(FileOperationUtils.getUserDirectory())) {
+        if (FileOperationUtils.checkExist(FileOperationUtils.getUserInfoFilePath())) {
             fragment = new MainFragment();
             fm.beginTransaction().add(R.id.main_container, fragment).commit();
         } else {
-            Log.d(TAG, FileOperationUtils.getUserDirectory());
+            Log.d(TAG, FileOperationUtils.getUserInfoFilePath());
             fragment = new RegisterFormFragment();
             fm.beginTransaction().add(R.id.main_container, fragment).commit();
         }

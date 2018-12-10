@@ -1,6 +1,9 @@
 package com.example.zhuyu.phx_final;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
@@ -20,37 +23,80 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.widget.TextView;
+
+import com.example.zhuyu.phx_final.model.Podcast;
+import com.example.zhuyu.phx_final.model.PodcastLibrary;
+import com.example.zhuyu.phx_final.model.UserInfo;
+import com.example.zhuyu.phx_final.utils.FileOperationUtils;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+import java.io.File;
+import java.io.InputStream;
+import java.net.URL;
 
 public class MainFragment extends Fragment implements BottomNavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener, NavigationView.OnNavigationItemSelectedListener{
 
     private BottomNavigationView mBottomNavigationView;
     private NavigationView mSlideNavigationView;
+    private View mHeaderView;
     private ViewPager mViewPager;
     private DrawerLayout mDrawerLayout;
+    private TextView mUserNameTextView;
+    private TextView mUserEmailTextView;
+    private UserInfo mUserInfo;
+    private PodcastLibrary podcastsTotal;
+    private ProgressDialog mProgressDialog;
+    private View globalV;
+
+    private String URLToAnalyse = "https://populationhealthexchange.org/library/podcasts/free-associations/";
     private static final String TAG = "MainFragment";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initInfo();
+        mUserInfo = UserInfo.sUserInfo;
+        podcastsTotal = PodcastLibrary.get();
+
+        mProgressDialog = ProgressDialog.show(getActivity(), "Please waiting", "Loading");
+        ConnectPHX getPodcastNum = new ConnectPHX();
+        getPodcastNum.execute();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v =inflater.inflate(R.layout.main_main, container, false);
+        globalV = inflater.inflate(R.layout.main_main, container, false);
+
+        return globalV;
+    }
+
+    private void initView(View v) {
         mBottomNavigationView = v.findViewById(R.id.main_bottom_navigation_view);
         mSlideNavigationView = v.findViewById(R.id.mine_navi_view);
         mViewPager = v.findViewById(R.id.main_view_pager);
         mDrawerLayout = v.findViewById(R.id.mine_drawer_layout);
+        mHeaderView = mSlideNavigationView.getHeaderView(0);
+        mUserNameTextView = mHeaderView.findViewById(R.id.navi_header_user_name_text_view);
+        mUserEmailTextView = mHeaderView.findViewById(R.id.navi_header_user_email_text_view);
 
         mBottomNavigationView.setOnNavigationItemSelectedListener(this);
         mSlideNavigationView.setNavigationItemSelectedListener(this);
+        mUserNameTextView.setText(mUserInfo.getName());
+        mUserEmailTextView.setText(mUserInfo.getEmail());
 
         mViewPager.addOnPageChangeListener(this);
         FragmentManager fragmentManager = getChildFragmentManager();
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(new EventFragment(), new LibraryFragment(), new DownloadFragment(), fragmentManager);
         mViewPager.setAdapter(viewPagerAdapter);
+    }
 
-        return v;
+    private void initInfo() {
+        String[] userInfo = FileOperationUtils.readFromFile(FileOperationUtils.getUserInfoFilePath()).split("/");
+        UserInfo.setUserInfo(new UserInfo(userInfo[0], userInfo[1]));
     }
 
     @Override
@@ -145,7 +191,96 @@ public class MainFragment extends Fragment implements BottomNavigationView.OnNav
         public int getCount() {
             return 3;
         }
+    }
 
+
+    public class ConnectPHX extends AsyncTask<Void, Void, String> {
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            Log.d(TAG, "Enter thread");
+            int listNum = 0;
+
+            try {
+                Document doc = Jsoup.parse(new URL(URLToAnalyse), 5000);
+                //finalLink = doc.select("p.powerpress_links").select("a[href]").get(0).attr("href");
+                Elements podcastList = doc.select("div.related_block").get(1).select("div.related_items").select("article.related_item");
+                listNum = podcastList.size();
+                Log.d(TAG, "Total number of Podcasts is " + listNum);
+                if (listNum != podcastsTotal.getPodcasts().size()) {
+                    Log.d(TAG, "not equal " + podcastsTotal.getPodcasts().size());
+                    updateNewPodcasts(podcastList, (listNum - podcastsTotal.getPodcasts().size()));
+                }
+
+
+
+            } catch (Exception e) {
+                Log.d(TAG, e.toString());
+            }
+
+            Log.d(TAG, "Data finished");
+            return listNum + "";
+        }
+
+        @Override
+        protected void onPostExecute(String finalLink) {
+
+            //podcastsTotal.closeDatabase();
+            Log.d(TAG, "closed");
+            Log.d(TAG, "TestOK " + podcastsTotal.getPodcasts().size());
+
+            mProgressDialog.dismiss();
+            initView(globalV);
+
+        }
+
+        private void updateNewPodcasts(Elements podcastList, int numToAdd){
+
+
+            Log.d(TAG, "num to add" + numToAdd);
+
+            for (int i = 0; i < numToAdd; i++) {
+
+                /*if (i < 5) {
+                    continue;
+                }*/
+
+                String getSubPodcastLink = podcastList.get(i).select("a.related_thumbnail_link").attr("href");
+                String mID;
+                if (getSubPodcastLink.substring(getSubPodcastLink.length()-3, getSubPodcastLink.length()-1).equals("-5")) {
+                    mID = getSubPodcastLink.substring(getSubPodcastLink.length()-5, getSubPodcastLink.length()-3) + "-5";
+                } else {
+                    mID = getSubPodcastLink.substring(getSubPodcastLink.length()-3, getSubPodcastLink.length()-1);
+                }
+                Log.d(TAG, "for " + mID);
+                String mTitle = podcastList.get(i).select("a.related_heading_link").get(0).text();
+                String mTime = podcastList.get(i).select("div.related_label").get(0).text();
+                String mDescrip = podcastList.get(i).select("div.related_description").get(0).text();
+                String mImgUrl = podcastList.get(i).select("img.related_image").attr("src");
+                String mMP3UrlPre = "https://populationhealthexchange.org/wp-content/podcasts/fa/Free_Associations_Episode_";
+                String mMP3Url = mMP3UrlPre + mID + ".mp3";
+
+                Drawable imgShow = LoadImageFromWeb(mImgUrl);
+
+                //podcastsTotal.addPodcast(new Podcast(mID, mTitle, mTime, mDescrip, mImgUrl, mMP3Url, false));
+                podcastsTotal.addPodcast(new Podcast(mID, mTitle, mTime, mDescrip, mImgUrl, mMP3Url, false, imgShow));
+
+
+            }
+
+        }
+
+        private Drawable LoadImageFromWeb(String url) {
+            try {
+                InputStream is = (InputStream) new URL(url).getContent();
+                Drawable d = Drawable.createFromStream(is, "src name");
+                return d;
+            } catch (Exception e){
+                Log.d(TAG, e.toString());
+                return null;
+            }
+        }
 
     }
 }

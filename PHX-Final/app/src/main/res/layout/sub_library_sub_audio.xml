@@ -12,80 +12,79 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.8"
+        app:layout_constraintHeight_percent="0.85"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
     />
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/audio_player_constraint_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintHeight_percent="0.15"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1">
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/audio_play_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:background="@android:color/background_light"
             android:src="@drawable/audio_play"
-            app:layout_constraintBottom_toBottomOf="@+id/progressBar2"
-            app:layout_constraintEnd_toStartOf="@+id/progressBar2"
+            app:layout_constraintBottom_toBottomOf="@+id/audio_play_progress_progressbar"
+            app:layout_constraintEnd_toStartOf="@+id/audio_play_progress_progressbar"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/progressBar2" />
+            app:layout_constraintTop_toTopOf="@+id/audio_play_progress_progressbar" />
 
-        <ProgressBar
-            android:id="@+id/progressBar2"
+        <SeekBar
+            android:id="@+id/audio_play_progress_progressbar"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="0dp"
             android:layout_height="9dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintEnd_toStartOf="@+id/audio_play_time_text_view"
             app:layout_constraintHorizontal_weight="7"
-            app:layout_constraintStart_toEndOf="@+id/imageButton"
+            app:layout_constraintStart_toEndOf="@+id/audio_play_button"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.7" />
+            app:layout_constraintVertical_bias="0.65" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/audio_play_time_text_view"
             android:layout_width="0dp"
-            android:layout_height="39dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:text="TextView"
+            android:text="00:00/00:00"
             android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="@+id/progressBar2"
+            app:layout_constraintBottom_toBottomOf="@+id/audio_play_progress_progressbar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_weight="2"
-            app:layout_constraintStart_toEndOf="@+id/progressBar2"
-            app:layout_constraintTop_toTopOf="@+id/progressBar2" />
+            app:layout_constraintHorizontal_weight="2.25"
+            app:layout_constraintStart_toEndOf="@+id/audio_play_progress_progressbar"
+            app:layout_constraintTop_toTopOf="@+id/audio_play_progress_progressbar" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/audio_play_info_text_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="TextView"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintHeight_percent="0.25"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

@@ -1,10 +1,15 @@
-package com.example.zhuyu.phx_final;
+package com.example.zhuyu.phx_final.utils;
 
 import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
-import java.io.File;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.RandomAccessFile;
 
 
 public class FileOperationUtils {
@@ -37,8 +42,8 @@ public class FileOperationUtils {
 
     }
 
-    public static String getUserDirectory() {
-        return getExternalRootPath() + "/PHX/user/";
+    public static String getUserInfoFilePath() {
+        return getExternalRootPath() + "/PHX/user/info.txt";
 
     }
 
@@ -72,6 +77,47 @@ public class FileOperationUtils {
             Log.e(TAG, e.toString());
             return false;
         }
+    }
+
+    public static boolean writeToFile(String path, String contentToWrite) {
+        try {
+            File file = new File(path);
+            if (!file.exists()) {
+                Log.d(TAG, "write issue: file not exitst");
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rwd");
+            randomAccessFile.seek(file.length());
+            randomAccessFile.write(contentToWrite.getBytes());
+            randomAccessFile.close();
+            return true;
+        } catch (Exception e) {
+            Log.d(TAG, "write issue: " + e.toString());
+            return false;
+        }
+    }
+
+
+    public static String readFromFile(String path) {
+        String content = "";
+        try {
+            File file = new File(path);
+            InputStream inputStream = new FileInputStream((file));
+            if (inputStream != null) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    content += line + "\n";
+                }
+                inputStream.close();
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "write issue: " + e.toString());
+        }
+
+        return content;
     }
 
 

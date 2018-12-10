@@ -13,8 +13,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.io.File;
+import com.example.zhuyu.phx_final.utils.FileOperationUtils;
+import com.example.zhuyu.phx_final.utils.MailSenderUtils;
 
 public class RegisterFormFragment extends Fragment{
 
@@ -54,8 +55,9 @@ public class RegisterFormFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 MailSenderUtils mailSenderUtils = new MailSenderUtils("Registration Form", getUserInfo());
+                String infoToWrite = mFirstNameEditText.getText().toString() + " " + mLastNameEditText.getText().toString() + "/" + mEmailEditText.getText().toString();
                 mailSenderUtils.sendEmail();
-                FileOperationUtils.createDirectory(FileOperationUtils.getUserDirectory());
+                FileOperationUtils.writeToFile(FileOperationUtils.getUserInfoFilePath(), infoToWrite);
                 MainActivity mainActivity = (MainActivity) getActivity();
                 mainActivity.goToMain();
 
