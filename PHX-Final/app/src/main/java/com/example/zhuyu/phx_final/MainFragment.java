@@ -53,6 +53,7 @@ public class MainFragment extends Fragment implements BottomNavigationView.OnNav
     private View globalV;
 
     private String URLToAnalyse = "https://populationhealthexchange.org/library/podcasts/free-associations/";
+    //private String URLToAnalyse = "https://populationhealthexchange.org/library/practically-speaking/";
     private String URLToAnalysePS = "https://populationhealthexchange.org/library/practically-speaking/";
     private String URLToAnalyseW = "https://populationhealthexchange.org/learning-opportunities/webinar/";
     private static final String TAG = "MainFragment";

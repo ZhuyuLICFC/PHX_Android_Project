@@ -42,7 +42,6 @@
     <string name="tab_library_audio">Audio</string>
     <string name="tab_library_video">Video</string>
 
-
-
-
+    <string name="phx_title">A lifelong learning initiative.</string>
+    <string name="phx_description">PHX is a resource hub and continuing education experience for health.</string>
 </resources>

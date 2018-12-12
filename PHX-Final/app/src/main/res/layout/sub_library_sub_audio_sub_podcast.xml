@@ -69,7 +69,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0"
-        app:layout_constraintWidth_percent="1" />
+        app:layout_constraintWidth_percent="0.95" />
 
     <ImageButton
         android:id="@+id/podcast_share_image_button"
